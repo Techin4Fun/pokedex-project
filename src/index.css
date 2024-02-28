@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: "PokemonFR";
+  src: url('./assets/pfr.ttf');
+}
+@font-face {
+  font-family: "Playstation";
+  src: url('./assets/zrnicrg.ttf');
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* font-family: "Pixelify Sans", system-ui, sans-serif; */
+  /* color: #56564e;
+  text-shadow: 1px 1px #aebfbf; */
+  background-color: white;
+}
+
+/* h1 {
+  font-weight: 800;
+  font-size: 1.25rem;
+  text-align: center;
+  color: white;
+  text-shadow: 2px 1px black;
+  letter-spacing: 2px;
+} */
+
+.box {
+  /* background-color: rgba(0, 255, 255, 0.178); */
+  width: 200px;
+  height: 200px;
+  /* overflow-y: auto; */
+}
+
+/* Card Component Styles [- - START - - ] */
+
+.list-item {
+  display: flex;
+  /* border: solid 3px transparent; */
+  cursor: pointer;
+}
+
+.list-item:hover {
+  border: solid 3px red;
+  /* border-radius: 10px; */
+}
+
+.li-left {
+  background-color: red;
+  display: flex;
+  align-items: center;
+  border: solid 3px red;
+  padding: 5px;
+}
+
+.li-left img {
+  /* background-color: blue; */
+  padding: 0;
+  margin: 0;
+}
+
+.li-right {
+  display: flex;
+  align-items: center;
+  padding: 0px 5px;
+  background-color: #f8f8f8;
+  border: solid 3px #f8f8f8;
+}
+
+/* Card Component Styles [- - END - - ] */
+
+/* Display Component Styles [- - START - - ] */
+.display-container {
+  width: 200px;
+  height: 200px;
+  /* background-color: rgba(0, 128, 0, 0.185); */
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+/* Display Component Styles [- - END - - ] */
+
+/* bg-heading-container Styles [- - START - - ] */
+  .bg-heading-container{
+    background-color: antiquewhite;
+  }
+
+  .heading{
+    background-color: red;
+    margin-bottom: 10px;
+  }
+/* bg-heading-container Styles [- - END - - ] */
+
+/* display-card-container Styles [- - START - - ] */
+.display-card-container {
+  display: flex;
+}
+/* display-card-container Styles [- - END - - ] */
+
+.pixel-img{
+  image-rendering: pixelated;
+}
