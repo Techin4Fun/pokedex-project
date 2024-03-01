@@ -9,6 +9,9 @@ export default {
       fontFamily:{
         'pokemon': ["PokemonFR"],
         'playstation': ["Playstation"]
+      },
+      animation:{
+        'jump': 'bounce 0.5s linear 1.5'
       }
     },
   },

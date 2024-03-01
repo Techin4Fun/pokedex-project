@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Card from './components/Card';
 import Display from './components/Display';
-import './index.css';
+import Loading from './components/Loading';
 
 
 // Pokedex Image reference: https://i.redd.it/onfiy4uxt9i91.png
@@ -41,12 +41,11 @@ export default function App() {
     }
   }
 
-  // console.log(pokemonList.length);
-
   return (
     <>
       {/* Pokedex will display when all data is loaded */}
-      {pokemonList.length === 0 ? "Loading" :
+
+      {pokemonList.length === 0 ? <Loading/> :
         <div className="w-[375px] bg-[#f8f8f8] font-pokemon tracking-tighter pb-3 border-4 border-black rounded-md shadow-xl">
             <div className="bg-red-500 py-1 mb-3 border-b-4 border-black shadow-lg">
               <h1
@@ -58,6 +57,7 @@ export default function App() {
                 Pokémon Red Pokédex
               </h1>
             </div>
+            
             <div className="flex">
               <Display
                 name={pokemonList[flag].name}
@@ -65,6 +65,7 @@ export default function App() {
                 seen={386}
                 owned={386}
               />
+
               <div className="w-[200px] h-[200px] overflow-y-auto rounded-lg border-y-[3px] border-l-[3px]  border-black">
                 {pokemonList.map((pokemon, index) => (
                   <div
