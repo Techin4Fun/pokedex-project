@@ -22,11 +22,15 @@ export default function App() {
         const response = await fetch(baseURL + i);
         const data = await response.json();
         list.push(data);
-        setPokemonList(list);
-      } 
+        // setPokemonList(list);
+      }
+      setPokemonList(list);
     }
 
-    setTimeout(getPokemon(), 2000);
+    // console.log(list);
+    setTimeout(function(){
+      getPokemon();
+    }, 1000);
     
 
   }, []);
