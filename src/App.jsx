@@ -18,7 +18,7 @@ export default function App() {
 
     async function getPokemon() {
       const list = [];
-      for (let i = 1; i <= 151; i++) {
+      for (let i = 1; i <= 20; i++) {
         const response = await fetch(baseURL + i);
         const data = await response.json();
         list.push(data);
@@ -26,7 +26,7 @@ export default function App() {
       } 
     }
 
-    setTimeout(getPokemon, 2000);
+    setTimeout(getPokemon(), 2000);
     
 
   }, []);
