@@ -6,8 +6,6 @@ import Loading from './components/Loading';
 
 // Pokedex Image reference: https://i.redd.it/onfiy4uxt9i91.png
 
-const baseURL = 'https://pokeapi.co/api/v2/pokemon/';
-
 let flag_index = 0;
 
 export default function App() {
@@ -18,19 +16,17 @@ export default function App() {
 
     async function getPokemon() {
       const list = [];
-      for (let i = 1; i <= 20; i++) {
+      const baseURL = 'https://pokeapi.co/api/v2/pokemon/';
+      for (let i = 1; i <= 30; i++) {
         const response = await fetch(baseURL + i);
         const data = await response.json();
         list.push(data);
-        // setPokemonList(list);
+        setPokemonList(list.map(item => item));
+        // setPokemonList(list); // Doesn't re-render the list
       }
-      setPokemonList(list);
     }
 
-    // console.log(list);
-    setTimeout(function(){
-      getPokemon();
-    }, 1000);
+    getPokemon();
     
 
   }, []);
