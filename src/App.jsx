@@ -17,18 +17,16 @@ export default function App() {
     async function getPokemon() {
       const list = [];
       const baseURL = 'https://pokeapi.co/api/v2/pokemon/';
-      for (let i = 1; i <= 30; i++) {
+      for (let i = 1; i <= 151; i++) {
         const response = await fetch(baseURL + i);
         const data = await response.json();
         list.push(data);
         setPokemonList(list.map(item => item));
-        // setPokemonList(list); // Doesn't re-render the list
       }
     }
 
     getPokemon();
-    
-
+  
   }, []);
 
   function checkId(id){
