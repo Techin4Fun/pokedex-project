@@ -25,7 +25,9 @@ export default function App() {
         setPokemonList(list);
       } 
     }
-    getPokemon();
+
+    setTimeout(getPokemon, 2000);
+    
 
   }, []);
 
