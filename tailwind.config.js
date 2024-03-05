@@ -11,7 +11,7 @@ export default {
         'playstation': ["Playstation"]
       },
       animation:{
-        'jump': 'bounce 0.5s linear 1.5'
+        'jump': 'bounce 0.5s ease-out 0.5'
       }
     },
   },

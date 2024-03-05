@@ -2,15 +2,18 @@ import { useState, useEffect } from 'react';
 import Card from './components/Card';
 import Display from './components/Display';
 import Loading from './components/Loading';
+import { getTypeTopColor, getTypeTopColor2, getTypeBottomColor, getTypeBottomColor2, getTypeName1, getTypeName2 } from './colors';
 
 
 // Pokedex Image reference: https://i.redd.it/onfiy4uxt9i91.png
 
 let flag_index = 0;
+let jumpAnimation = "animate-jump";
 
 export default function App() {
   const [pokemonList, setPokemonList] = useState([]);
   const [flag, setFlag] = useState(flag_index);
+  const [jump, setJump] = useState("");
   
   useEffect(function () {
 
@@ -26,8 +29,15 @@ export default function App() {
     }
 
     getPokemon();
-  
+
   }, []);
+
+  function playSound(id){
+    const baseURL = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/`
+    let audio = new Audio(`${baseURL}${id + 1}.ogg`);
+    audio.volume = 0.025;
+    audio.play();
+  }
 
   function checkId(id){
     if(id < 10){
@@ -40,6 +50,15 @@ export default function App() {
       return id;
     }
   }
+
+  function getAnimation(functionName, animationName, delayInMs = 0){
+      functionName(animationName);
+      setTimeout(function(){
+        functionName("");
+        console.log(jump)
+      }, delayInMs);
+  }
+
 
   return (
     <>
@@ -62,8 +81,13 @@ export default function App() {
               <Display
                 name={pokemonList[flag].name}
                 image={pokemonList[flag].sprites.front_default}
-                seen={386}
-                owned={386}
+                typeName1={getTypeName1(pokemonList, flag)}
+                topColor1={getTypeTopColor(pokemonList, flag)}
+                bottomColor1={getTypeBottomColor(pokemonList, flag)}
+                typeName2={getTypeName2(pokemonList, flag)}
+                topColor2={getTypeTopColor2(pokemonList, flag)}
+                bottomColor2={getTypeBottomColor2(pokemonList, flag)}
+                animation={jump}
               />
 
               <div className="w-[200px] h-[200px] overflow-y-auto rounded-lg border-y-[3px] border-l-[3px]  border-black">
@@ -73,13 +97,17 @@ export default function App() {
                     onClick={function () {
                       flag_index = index;
                       setFlag(flag_index);
-                      console.log(flag_index);
+                      playSound(index);
+                      getAnimation(setJump, jumpAnimation, 500);
+                      console.log(jump);
+                      // console.log(flag_index);
                     }}
                     className=''
                   >
                     <Card 
                       id={checkId(pokemon.id)} 
-                      name={pokemon.name} />
+                      name={pokemon.name}
+                    />
                   </div>
                 ))}
               </div>
