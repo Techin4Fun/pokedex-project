@@ -4,7 +4,6 @@ import Display from './components/Display';
 import Loading from './components/Loading';
 import { getTypeTopColor, getTypeTopColor2, getTypeBottomColor, getTypeBottomColor2, getTypeName1, getTypeName2 } from './colors';
 
-
 // Pokedex Image reference: https://i.redd.it/onfiy4uxt9i91.png
 
 let flag_index = 0;
@@ -14,6 +13,13 @@ export default function App() {
   const [pokemonList, setPokemonList] = useState([]);
   const [flag, setFlag] = useState(flag_index);
   const [jump, setJump] = useState("");
+
+  function playBGM(){
+    let audio = new Audio("https://dl.vgmdownloads.com/soundtracks/pokemon-firered-leafgreen-music-super-complete/nixinsogwg/1-03.%20Title%20Screen.mp3");
+    audio.volume = 0.015;
+    audio.play();
+    audio.loop = true;
+  }
   
   useEffect(function () {
 
@@ -29,6 +35,7 @@ export default function App() {
     }
 
     getPokemon();
+    playBGM();
 
   }, []);
 
@@ -55,7 +62,7 @@ export default function App() {
       functionName(animationName);
       setTimeout(function(){
         functionName("");
-        console.log(jump)
+        // console.log(jump)
       }, delayInMs);
   }
 
