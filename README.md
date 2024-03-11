@@ -40,7 +40,6 @@ The solution to the second challenge was to basically check if the length of the
 
 
 
-Technologies used: HTML, TailwindCSS and React.
 ## Run Locally
 
 Clone the project
