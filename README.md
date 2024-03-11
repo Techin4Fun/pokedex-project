@@ -3,7 +3,7 @@
 
 This Pokedex retrieves all of its data from the PokeApi and features all 151 pokemon from the First Generation!
 
-**Link to project:** http://recruiters-love-seeing-live-demos.com/
+**Link to project:** https://t4f-pokedex.netlify.app/
 ## Technologies
 
 HTML /
